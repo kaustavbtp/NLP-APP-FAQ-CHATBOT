@@ -1,0 +1,17 @@
+---
+applications:
+  - name: my-faq-app
+    path: fastapi_app
+    random-route: true
+    memory: 512M
+    buildpacks:
+      - python_buildpack
+    command: uvicorn app:app --host 0.0.0.0 --port ${PORT}
+
+  - name: my-streamlit-app
+    path: streamlit_app
+    random-route: true
+    memory: 512M
+    buildpacks:
+      - python_buildpack
+    command: streamlit run streamlit_app.py --server.port ${PORT} --server.address 0.0.0.0

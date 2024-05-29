@@ -1,0 +1,8 @@
+---
+applications:
+  - name: my-streamlit-app
+    random-route: true
+    memory: 512M
+    buildpacks:
+      - python_buildpack
+    command: streamlit run streamlit_app.py --server.port ${PORT} --server.address 0.0.0.0
